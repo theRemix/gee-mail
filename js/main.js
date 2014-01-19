@@ -49,6 +49,8 @@ function prependMessage (box, message) {
   item.setAttribute("data-subject", message.subject);
   item.setAttribute("data-date", message.date);
   item.setAttribute("data-body", message.body);
+  item.setAttribute("data-unread", true);
+  item.className = "unread";
   item.onclick = click_message;
   box.insertBefore(item, box.childNodes[0]);
 }
@@ -109,11 +111,13 @@ function click_message () {
 
   // un'select' all others
   for(i=0; i<this.parentNode.childNodes.length; i++) {
-    this.parentNode.childNodes[i].className = "";
+    var msg = this.parentNode.childNodes[i];
+    msg.className = (msg.getAttribute("data-unread") == "true")? "unread" : "";
   }
 
   // select this list item
   this.className = "selected";
+  this.setAttribute("data-unread", false);
 }
 
 function short_date (date) {
