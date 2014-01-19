@@ -4,12 +4,14 @@ div#two_columns{
 }
 ul#sidebar{
   float: left;
-  margin: 20px;
+  
+  width: 20%;
 }
 
 
 div#messages{
-
+  float: right;
+  width: 80%;
 }
 
 div#messages ul#messages_inbox{
@@ -40,6 +42,11 @@ div#messages ul#messages_trash{
 
 a{
   text-decoration: none;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
 }
 
 li{
