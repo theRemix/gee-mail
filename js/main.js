@@ -1,13 +1,20 @@
 var messages_inbox,
-    message_preview;
+    message_preview,
+    box_inbox_count;
 
 (function(){
   window.onload = function() {
     messages_inbox = document.getElementById("messages_inbox");
     message_preview = document.getElementById("message_preview");
+    box_inbox_count = document.getElementById("box_inbox_count");
     populateInbox(); 
   }
 })();
+
+function updateInboxCount () {
+  var count = messages_inbox.childNodes.length;
+  box_inbox_count.innerHTML = count;
+}
 
 
 function populateInbox () {
@@ -19,6 +26,8 @@ function populateInbox () {
       appendMessage(messages_inbox, window.geemails[i]);
     }
   }
+
+  updateInboxCount();
 }
 
 function appendMessage (box, message) {
