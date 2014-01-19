@@ -1,0 +1,51 @@
+
+div#two_columns{
+
+}
+ul#sidebar{
+  float: left;
+  margin: 20px;
+}
+
+
+div#messages{
+
+}
+
+div#messages ul#messages_inbox{
+  
+}
+
+div#messages ul#messages_archive{
+  
+}
+
+div#messages ul#messages_trash{
+  
+}
+
+
+
+
+
+/* global */
+
+*{
+  font-family: "Helvetica" sans-serif;
+}
+
+.active{
+  font-weight: bold;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.hidden{
+  display: none;
+}

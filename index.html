@@ -1,12 +1,47 @@
 <html>
 	<head>
+		<title>Gee Mail</title>
 		<script src="js/mail-generator.js"></script>
     <script src="js/main.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<div class="container" id="main">
-			
+			<div id="header">
+				<h1>Gee Mail</h1>
+			</div>
+			<div id="two_columns">
+				<ul id="sidebar">
+					<li class="active">
+						<a id="box_inbox" href="#inbox">
+							Inbox
+						</a>
+					</li>
+					<li>
+						<a id="box_archive" href="#archive">
+							Archive
+						</a>
+					</li>
+					<li>
+						<a id="box_trash" href="#trash">
+							Trash
+						</a>
+					</li>
+				</ul>
+				<div id="messages">
+					<ul id="messages_inbox">
+						<li class="empty_box">You have no messages in your inbox.</li>
+					</ul>
+					<ul id="messages_archived" class="hidden">
+						<li class="empty_box">You have no archived messages.</li>
+					</ul>
+					<ul id="messages_trash" class="hidden">
+						<li class="empty_box">You have no messages in the Trash.</li>
+					</ul>
+					<div id="message_preview"></div>
+				</div>
+
+			</div>
 		</div>
 	</body>
 </html>
