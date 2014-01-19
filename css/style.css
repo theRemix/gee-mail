@@ -14,19 +14,17 @@ div#messages{
   width: 80%;
 }
 
-div#messages ul#messages_inbox{
-  
-}
-
-div#messages ul#messages_archive{
-  
-}
-
+div#messages ul#messages_inbox,
+div#messages ul#messages_archive,
 div#messages ul#messages_trash{
-  
+  height: 30%;
+  overflow: auto;
 }
 
-
+div#message_preview{
+  height: 70%;
+  overflow: auto;
+}
 
 
 

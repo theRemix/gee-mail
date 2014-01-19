@@ -1,3 +1,5 @@
+var UPDATE_INBOX_INTERVAL_MS = 5000;
+
 var messages_inbox,
     message_preview,
     box_inbox_count;
@@ -9,7 +11,15 @@ var messages_inbox,
     box_inbox_count = document.getElementById("box_inbox_count");
     populateInbox(); 
   }
+
+  window.setInterval(checkInbox, UPDATE_INBOX_INTERVAL_MS);
 })();
+
+function checkInbox () {
+  var message = window.getNewMessage();
+  prependMessage(messages_inbox, message);
+  updateInboxCount();
+}
 
 function updateInboxCount () {
   var count = messages_inbox.childNodes.length;
@@ -23,14 +33,14 @@ function populateInbox () {
     messages_inbox.innerHTML = "";
 
     for(i in window.geemails){
-      appendMessage(messages_inbox, window.geemails[i]);
+      prependMessage(messages_inbox, window.geemails[i]);
     }
   }
 
   updateInboxCount();
 }
 
-function appendMessage (box, message) {
+function prependMessage (box, message) {
   var item = document.createElement("li");
   item.appendChild(spanElement("box_list_from", message.sender));
   item.appendChild(spanElement("box_list_subject", message.subject));
@@ -40,7 +50,7 @@ function appendMessage (box, message) {
   item.setAttribute("data-date", message.date);
   item.setAttribute("data-body", message.body);
   item.onclick = click_message;
-  box.appendChild(item);
+  box.insertBefore(item, box.childNodes[0]);
 }
 
 function spanElement (class_name, inner) {
