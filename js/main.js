@@ -44,7 +44,7 @@ function prependMessage (box, message) {
   var item = document.createElement("li");
   item.appendChild(spanElement("box_list_from", message.sender));
   item.appendChild(spanElement("box_list_subject", message.subject));
-  item.appendChild(spanElement("box_list_date", message.date));
+  item.appendChild(spanElement("box_list_date", short_date(message.date)));
   item.setAttribute("data-from", message.sender);
   item.setAttribute("data-subject", message.subject);
   item.setAttribute("data-date", message.date);
@@ -97,7 +97,7 @@ function click_message () {
   dl.appendChild(dt);
 
   dd = document.createElement("dd");
-  dd.innerHTML = this.getAttribute("data-date");
+  dd.innerHTML = long_date(this.getAttribute("data-date"));
   dl.appendChild(dd);
 
   var message_body = document.createElement("div");
@@ -106,4 +106,22 @@ function click_message () {
 
   message_preview.appendChild(dl);
   message_preview.appendChild(message_body);
+
+  // un'select' all others
+  for(i=0; i<this.parentNode.childNodes.length; i++) {
+    this.parentNode.childNodes[i].className = "";
+  }
+
+  // select this list item
+  this.className = "selected";
+}
+
+function short_date (date) {
+  var d = date.getDate();
+  var m = date.getMonth() + 1;
+  var y = date.getFullYear();
+  return (m<=9 ? '0' + m : m) + '/' + (d <= 9 ? '0' + d : d) + '/' + y;
+}
+function long_date (date) {
+  return date.toString(); 
 }

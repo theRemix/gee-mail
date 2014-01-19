@@ -26,6 +26,28 @@ div#message_preview{
   overflow: auto;
 }
 
+div#messages li span{
+  display: inline-block;
+}
+
+span.box_list_from{
+  width: 30%;
+}
+span.box_list_subject{
+  width: 50%;
+}
+span.box_list_date{
+  width: 20%;
+}
+
+div#messages li{
+  cursor: pointer;
+}
+
+div#messages li.selected{
+  background: #ffdeed;
+  font-weight: bold;
+}
 
 
 /* global */
@@ -49,6 +71,10 @@ ul{
 
 li{
   list-style: none;
+}
+
+dt{
+  font-weight: bold;
 }
 
 .hidden{
