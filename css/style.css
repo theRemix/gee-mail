@@ -60,6 +60,16 @@ div#messages li.selected{
   background: #ffdeed;
 }
 
+dl#message_info{
+  width: 70%;
+  float: left;
+}
+
+div#message_actions{
+  width: 30%;
+  float: right;
+  padding-top: 103px;
+}
 
 /* global */
 
@@ -90,4 +100,8 @@ dt{
 
 .hidden{
   display: none;
+}
+
+.clear{
+  clear: both;
 }
